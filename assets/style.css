@@ -1,381 +1,272 @@
-/* Import fonts: Playfair Display for headings, Lato for body */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Playfair+Display:ital,wght@1,700&display=swap');
+/* Import Citrine font */
+@import url('https://fonts.googleapis.com/css2?family=Citrine&display=swap');
 
 /* Reset */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body and Background */
 body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background: #fffaf5;
-  color: #4a3c31; /* dark warm brown */
+  font-family: 'Citrine', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+  color: #f8f7f5;
   min-height: 100vh;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  align-items: center;
+  padding: 40px 40px 60px 40px;
+  user-select: none;
 }
 
 /* Navbar */
 .navbar {
-  background: linear-gradient(90deg, #f7f0e6, #d4b278);
-  padding: 15px 50px;
+  width: 100%;
+  max-width: 1200px;
+  background: linear-gradient(90deg, #1e1c1c, #2a2525);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 15px rgba(212, 178, 120, 0.5);
+  align-items: center;
+  padding: 20px 40px;
+  margin-bottom: 50px;
   position: sticky;
-  top: 0;
-  z-index: 9999;
-  user-select: none;
+  top: 10px;
+  z-index: 100;
 }
 
+/* Logo */
 .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Citrine', sans-serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 2.4rem;
-  color: #a97723; /* rich gold */
-  letter-spacing: 4px;
-  text-shadow: 0 0 8px #d4b278cc;
+  font-size: 3rem;
+  background: linear-gradient(90deg, #f1c40f, #f39c12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 6px rgba(241, 196, 15, 0.8),
+    0 0 12px rgba(243, 156, 18, 0.6);
+  letter-spacing: 6px;
   cursor: default;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
 }
 
+/* Navigation links container */
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 30px;
   list-style: none;
 }
 
+/* Each nav link card */
 .nav-links li {
-  background: linear-gradient(145deg, #fff9f0, #d4b278);
+  background: #292424;
+  border: 2px solid #f1c40f;
+  border-radius: 16px;
   padding: 12px 28px;
-  border-radius: 18px;
-  box-shadow: 5px 5px 12px #b58f43, -5px -5px 12px #fef8e6;
-  transition: all 0.3s ease;
+  box-shadow:
+    0 0 10px rgba(241, 196, 15, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
 }
 
 .nav-links li a {
-  color: #6b552d; /* dark gold brown */
+  color: #f1c40f;
   font-weight: 700;
   font-style: italic;
+  font-size: 1.15rem;
   text-decoration: none;
-  display: block;
-  user-select: none;
   transition: color 0.3s ease;
+  user-select: none;
 }
 
 .nav-links li:hover,
 .nav-links li:focus-within {
-  background: linear-gradient(145deg, #d4b278, #f7f0e6);
-  box-shadow: 8px 8px 20px #b58f43, -8px -8px 20px #fef8e6;
+  background: linear-gradient(90deg, #f1c40f, #d4af37);
+  box-shadow:
+    0 0 20px rgba(241, 196, 15, 0.8),
+    inset 0 0 8px rgba(255, 223, 93, 0.6);
 }
 
 .nav-links li:hover a,
-.nav-links li:focus-within a,
-.nav-links li a.active {
-  color: #a97723;
-  text-shadow: 0 0 8px #d4b278cc;
+.nav-links li:focus-within a {
+  color: #1c1a1a;
 }
 
-/* Main content wrapper */
+/* Main content container */
 main {
-  flex: 1;
-  max-width: 1150px;
-  margin: 50px auto 80px;
-  padding: 0 20px;
+  max-width: 1200px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 45px;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-/* Hero section */
-.hero {
-  background: linear-gradient(145deg, #fff9f0, #d4b278);
-  border-radius: 26px;
-  padding: 60px 50px;
-  box-shadow: 8px 8px 28px #b58f43, -8px -8px 28px #fef8e6;
-  text-align: center;
-  color: #6b552d;
-  user-select: none;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 3.6rem;
-  margin-bottom: 28px;
-  letter-spacing: 3px;
-  text-shadow: 0 0 15px #d4b278cc;
-}
-
-.hero p {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.3rem;
-  max-width: 720px;
-  margin: 0 auto 38px;
-  color: #8f7a49cc;
-}
-
-/* Buttons */
-.btn-primary {
-  background: linear-gradient(145deg, #d4b278, #a97723);
-  color: #fffaf5;
-  font-weight: 700;
-  font-style: italic;
-  padding: 18px 52px;
-  font-size: 1.25rem;
-  border-radius: 22px;
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 0 20px #a97723cc;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background: linear-gradient(145deg, #fff9f0, #c49b38);
-  box-shadow: 0 0 34px #fff7cc;
-  outline: none;
-}
-
-/* Offers grid section */
-.offers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-  gap: 36px;
-}
-
-.offer-card {
-  background: linear-gradient(145deg, #fff9f0, #d4b278);
-  border-radius: 26px;
-  padding: 34px 40px;
-  box-shadow: 8px 8px 32px #b58f43, -8px -8px 32px #fef8e6;
-  color: #6b552d;
+/* Affiliate Card */
+.card {
+  background: linear-gradient(145deg, #2e2a2a, #1c1a1a);
+  border-radius: 24px;
+  border: 2px solid #d4af37;
+  box-shadow:
+    0 0 18px rgba(212, 175, 55, 0.4),
+    inset 0 0 14px rgba(212, 175, 55, 0.2);
+  color: #f1e6b2;
+  width: 360px;
+  padding: 36px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: box-shadow 0.4s ease;
+  cursor: default;
   user-select: none;
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.offer-card:hover,
-.offer-card:focus-within {
-  transform: translateY(-12px);
-  box-shadow: 12px 12px 44px #a97723cc, -12px -12px 44px #fff9f0;
+/* Neon animated glow behind card on hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #f1c40f, #f39c12, #f1c40f, #d4af37);
+  background-size: 400% 400%;
+  animation: neonGlow 12s ease infinite;
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  border-radius: 24px;
+}
+.card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
 }
 
-.offer-card h2 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+@keyframes neonGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Card content above neon glow */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Title */
+.card h2 {
+  font-size: 2.4rem;
   font-style: italic;
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: #a97723;
-  text-shadow: 0 0 10px #d4b278cc;
+  margin-bottom: 18px;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 10px rgba(243, 156, 18, 0.9);
+  user-select: text;
 }
 
-.offer-card p {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #8f7a49cc;
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
-
-/* Secondary button */
-.btn-secondary {
-  align-self: flex-start;
-  background: linear-gradient(145deg, #a97723, #fff9f0);
-  color: #6b552d;
-  font-weight: 700;
-  font-style: italic;
-  padding: 14px 34px;
-  font-size: 1.1rem;
-  border-radius: 22px;
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 0 18px #a97723cc;
-  text-decoration: none;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background: linear-gradient(145deg, #fff9f0, #c49b38);
-  box-shadow: 0 0 34px #fff7cc;
-  outline: none;
-}
-
-/* Adsense section */
-.adsense-section {
-  max-width: 728px;
-  margin: 60px auto 0;
-  padding: 40px 0;
-  user-select: none;
-}
-
-/* Blog & Article styling */
-article {
-  background: linear-gradient(145deg, #fff9f0, #d4b278);
-  border-radius: 26px;
-  padding: 50px 45px;
-  box-shadow: 10px 10px 36px #b58f43, -10px -10px 36px #fef8e6;
-  color: #6b552d;
-  max-width: 900px;
-  margin: 0 auto 70px;
-  font-style: italic;
-  font-weight: 700;
-  user-select: none;
-}
-
-article h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 3rem;
+/* Card Description */
+.card p {
+  font-size: 1.15rem;
+  line-height: 1.6;
   margin-bottom: 30px;
-  text-shadow: 0 0 20px #d4b278cc;
+  color: #f8f6e7;
+  user-select: text;
 }
 
-article p {
-  font-family: 'Lato', sans-serif;
+/* Button */
+.card a.btn {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #f1c40f, #d4af37);
+  color: #1c1a1a;
   font-weight: 700;
   font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.75;
-  margin-bottom: 26px;
-  color: #8f7a49cc;
-}
-
-/* Orders page */
-.orders-main {
-  background: linear-gradient(145deg, #fff9f0, #d4b278);
-  border-radius: 26px;
-  padding: 50px 55px;
-  box-shadow: 10px 10px 36px #b58f43, -10px -10px 36px #fef8e6;
-  max-width: 900px;
-  margin: 50px auto 90px;
-  font-style: italic;
-  font-weight: 700;
-  color: #6b552d;
-  user-select: none;
-}
-
-.orders-main h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 3rem;
-  margin-bottom: 40px;
-  text-shadow: 0 0 20px #d4b278cc;
-}
-
-.orders-main ol {
-  list-style: decimal inside;
-  line-height: 1.85;
   font-size: 1.3rem;
-  color: #8f7a49cc;
-}
-
-.orders-main ol li {
-  margin-bottom: 22px;
-}
-
-/* Landing page */
-.landing-body {
-  background: linear-gradient(135deg, #fff9f0, #d4b278, #a97723);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 16px 48px;
+  border-radius: 48px;
+  box-shadow:
+    0 0 22px rgba(243, 156, 18, 0.85);
+  text-decoration: none;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
   user-select: none;
-}
-
-.landing-container {
-  text-align: center;
-  color: #a97723;
-  text-shadow: 0 0 18px #d4b278cc;
-}
-
-.landing-container h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 4rem;
-  margin-bottom: 45px;
-  letter-spacing: 4px;
-}
-
-.btn-enter {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 1.8rem;
-  padding: 20px 70px;
-  background: linear-gradient(145deg, #a97723, #fff9f0);
-  color: #6b552d;
-  border: none;
-  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 40px #d4b278cc;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
+  letter-spacing: 1.2px;
 }
 
-.btn-enter:hover,
-.btn-enter:focus {
-  background: linear-gradient(145deg, #fff9f0, #c49b38);
-  box-shadow: 0 0 48px #fff7cc;
+.card a.btn:hover,
+.card a.btn:focus {
+  background: linear-gradient(90deg, #d4af37, #f1c40f);
+  box-shadow:
+    0 0 32px rgba(255, 223, 93, 1);
   outline: none;
+}
+
+/* Ad container */
+.ad-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  padding: 22px 0;
+  font-size: 1.1rem;
+  color: #d4af37;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  user-select: none;
+  border-top: 1px solid rgba(212, 175, 55, 0.4);
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .hero h1 {
-    font-size: 2.6rem;
+@media (max-width: 992px) {
+  main {
+    justify-content: center;
+    gap: 36px;
   }
-
-  .landing-container h1 {
-    font-size: 2.8rem;
-  }
-
-  .nav-links li {
-    padding: 10px 18px;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .btn-enter {
-    padding: 14px 36px;
-    font-size: 1.1rem;
-  }
-
-  .offers-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  .card {
+    width: 90vw;
   }
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
   .nav-links {
-    gap: 12px;
+    gap: 20px;
   }
-
-  main {
-    margin: 30px 15px 70px;
+  .logo {
+    font-size: 2.4rem;
+    letter-spacing: 5px;
   }
-}
+  }
