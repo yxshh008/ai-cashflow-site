@@ -1,237 +1,110 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@1,700&family=Citrus+Gothic&display=swap');
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body & base */
+/* Body */
 body {
-  font-family: 'Citrine Gothic', 'Cousine', monospace, Arial, sans-serif;
-  background: linear-gradient(135deg, #ffffff, #fff8e7);
-  color: #1a1a1a;
-  line-height: 1.6;
+  font-family: 'Cousine', monospace, Arial, sans-serif;
+  font-style: normal;   /* changed from italic */
+  background-color: #0a0a0a;
+  color: #eee;
   min-height: 100vh;
-  padding: 0 20px 60px 20px;
-  transition: background 0.5s ease;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
-/* Links */
-a {
-  color: #b58900;
+/* Header */
+header {
+  font-family: 'Cousine', monospace;
+  font-style: normal;   /* changed from italic */
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  color: #00ffff;
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+/* Navigation buttons */
+nav a {
+  display: block;
+  background-color: #111111;
+  padding: 18px 40px;
+  border-radius: 16px;
   text-decoration: none;
   font-weight: 700;
-  transition: color 0.3s ease;
-}
-a:hover, a:focus {
-  color: #ffbf47;
-  text-decoration: underline;
-  outline: none;
-}
-
-/* Navbar */
-.navbar {
-  background: linear-gradient(90deg, #b58900, #ffd54f);
-  padding: 15px 30px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 0 18px rgba(255, 191, 71, 0.7);
-  margin-bottom: 40px;
-  user-select: none;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.navbar .logo {
-  font-family: 'Citrine Gothic', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #4a2f00;
-  text-shadow: 0 0 8px #ffbf47;
-  letter-spacing: 0.12em;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links li a {
-  font-size: 1rem;
-  color: #4a2f00;
-  padding: 10px 18px;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;  /* changed from italic */
+  font-size: 1.2rem;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 6px transparent;
-}
-
-.nav-links li a:hover,
-.nav-links li a:focus,
-.nav-links li a.active {
-  background: #4a2f00;
-  color: #fff8e7;
-  box-shadow: 0 0 12px #ffbf47;
-  outline: none;
-}
-
-/* Main & headers */
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.page-header {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #4a2f00;
-  text-shadow: 0 0 10px #ffbf47;
-}
-
-.page-header h1 {
-  font-family: 'Citrine Gothic', sans-serif;
-  font-weight: 900;
-  font-size: 3rem;
-  letter-spacing: 0.12em;
-  margin-bottom: 15px;
-  font-style: italic;
-}
-
-.page-header p {
-  font-size: 1.3rem;
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-/* Card grid container */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 28px;
-  padding: 0 10px;
-}
-
-/* Card style */
-.card {
-  background: linear-gradient(145deg, #fff9e8, #fff2bf);
-  border-radius: 18px;
-  padding: 30px 25px;
-  box-shadow:
-    0 4px 20px rgba(255, 191, 71, 0.2),
-    inset 0 0 12px #fff8e7;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-style: italic;
-  position: relative;
-  overflow: hidden;
-}
-
-.card:hover,
-.card:focus-within {
-  transform: translateY(-10px);
-  box-shadow:
-    0 10px 30px rgba(255, 191, 71, 0.6),
-    inset 0 0 25px #fff8e7;
-  outline: none;
-}
-
-.card h2 {
-  font-family: 'Citrine Gothic', sans-serif;
-  font-weight: 900;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  letter-spacing: 0.1em;
-  color: #4a2f00;
-  text-shadow: 0 0 6px #ffbf47;
-}
-
-.card p {
-  font-size: 1.05rem;
-  color: #4a2f00;
-  margin-bottom: 25px;
-  line-height: 1.5;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  background: linear-gradient(45deg, #b58900, #ffbf47);
-  color: #4a2f00;
-  padding: 14px 36px;
-  border-radius: 40px;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: #00ffff;
   text-align: center;
   box-shadow:
-    0 0 8px #ffd54f,
-    inset 0 0 6px #ffbf47;
+    0 0 8px #00ffff,
+    inset 0 0 8px #00ffff;
   transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Cards */
+.card {
+  background-color: #111111;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow:
+    0 0 15px #00ffff,
+    inset 0 0 20px #00ffff;
+  color: #00ffff;
+  font-style: normal;  /* changed from italic */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card headings */
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* Card paragraph */
+.card p {
+  margin-bottom: 25px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Link buttons inside cards */
+.card a {
+  padding: 14px 32px;
+  background-color: #000000cc;
+  border-radius: 50px;
+  color: #00ffff;
   text-decoration: none;
-}
-
-.btn:hover,
-.btn:focus {
-  background: linear-gradient(45deg, #ffbf47, #b58900);
-  color: #fff8e7;
-  box-shadow:
-    0 0 16px #ffd54f,
-    inset 0 0 10px #fff8e7;
-  outline: none;
-  transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  padding: 18px 10px;
-  font-style: italic;
   font-weight: 700;
-  color: #7a5e00;
+  font-style: normal;  /* changed from italic */
+  font-size: 1rem;
   letter-spacing: 0.07em;
-  text-shadow: 0 0 4px #ffd54f;
+  text-align: center;
+  box-shadow:
+    0 0 8px #00ffff,
+    inset 0 0 6px #00ffff;
+  transition: all 0.3s ease;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .page-header h1 {
-    font-size: 2.3rem;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-}
-
-/* Focus outline for accessibility */
-a:focus,
-button:focus {
-  outline: 3px solid #ffd54f;
-  outline-offset: 3px;
-}
-
-/* Smooth transitions on all */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+.card a:hover,
+.card a:focus {
+  background-color: #00ffff;
+  color: #0a0a0a;
+  box-shadow:
+    0 0 15px #00ffff,
+    inset 0 0 12px #00ffff;
+  outline: none;
+  transform: scale(1.1);
 }
