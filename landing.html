@@ -1,50 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome | AI Passive Income</title>
+  <title>Welcome to AI Passive Income</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Google AdSense snippet -->
+  <!-- Google Adsense snippet -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2373469554701279"
-      crossorigin="anonymous"></script>
+          crossorigin="anonymous"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@1,700&display=swap');
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Cousine', monospace;
+      background: linear-gradient(135deg, #00111f, #003366);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      animation: fadeIn 1.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .landing-container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 60px 80px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #00bfff;
+      max-width: 450px;
+      width: 90vw;
+    }
+
+    .landing-container h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 10px #00bfff;
+    }
+
+    .landing-container p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #cce7ff;
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+
+    .enter-btn {
+      background: linear-gradient(45deg, #00bfff, #004080);
+      border: none;
+      padding: 18px 60px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #00bfff;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+
+    .enter-btn:hover,
+    .enter-btn:focus {
+      background: linear-gradient(45deg, #0080ff, #001f3f);
+      box-shadow: 0 0 24px #00ffff;
+      outline: none;
+      transform: scale(1.05);
+    }
+  </style>
+
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">AI Passive Income</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="offers.html">Offers</a></li>
-      <li><a href="orders.html">How to Order</a></li>
-    </ul>
-  </nav>
-
-  <main style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh; gap: 40px;">
-    <h1 style="font-size: 4rem; font-style: italic; background: linear-gradient(90deg, #f1c40f, #d4af37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 10px #d4af37;">
-      Welcome to AI Passive Income
-    </h1>
-    <a href="index.html" class="btn" style="font-size: 2.2rem; padding: 20px 60px; border-radius: 60px;">
-      Enter Site
-    </a>
-  </main>
-
-  <div class="ad-container">
-    <!-- AdSense Auto Ads -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2373469554701279"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+  <div class="landing-container" role="main" aria-label="Welcome page with enter button">
+    <h1>AI Passive Income</h1>
+    <p>Your gateway to automated affiliate earnings</p>
+    <button class="enter-btn" onclick="location.href='index.html'">Enter Site</button>
   </div>
-
-  <footer>
-    © 2025 AI Passive Income. All rights reserved.
-  </footer>
 </body>
 </html>
