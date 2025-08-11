@@ -1,110 +1,418 @@
-/* Body */
+/*========================
+  Global Reset & Setup
+=========================*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+}
+
 body {
-  font-family: 'Cousine', monospace, Arial, sans-serif;
-  font-style: normal;   /* changed from italic */
-  background-color: #0a0a0a;
-  color: #eee;
+  line-height: 1.6;
   min-height: 100vh;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 50px;
 }
 
-/* Header */
-header {
-  font-family: 'Cousine', monospace;
-  font-style: normal;   /* changed from italic */
+/*========================
+  Container Utility
+=========================*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/*========================
+  Typography
+=========================*/
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  font-size: 3rem;
-  letter-spacing: 0.1em;
-  color: #00ffff;
+  letter-spacing: 1.2px;
+  color: #fbc531;
   text-shadow:
-    0 0 10px #00ffff,
-    0 0 20px #00ffff;
-  margin-bottom: 20px;
-  user-select: none;
+    0 0 8px rgba(251,197,49,0.7),
+    0 0 15px rgba(251,197,49,0.5);
 }
 
-/* Navigation buttons */
-nav a {
-  display: block;
-  background-color: #111111;
-  padding: 18px 40px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 700;
-  font-style: normal;  /* changed from italic */
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-  color: #00ffff;
+h1.site-title {
+  font-size: 3.4rem;
+  margin: 1rem 0 1.5rem;
   text-align: center;
-  box-shadow:
-    0 0 8px #00ffff,
-    inset 0 0 8px #00ffff;
-  transition: all 0.3s ease;
+  color: #fbc531;
+  letter-spacing: 2px;
   user-select: none;
 }
 
-/* Cards */
-.card {
-  background-color: #111111;
-  padding: 25px 30px;
-  border-radius: 20px;
+h2.hero-title {
+  font-size: 2.6rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 3rem auto 1.2rem;
+  color: #fff;
+  text-shadow:
+    0 0 10px #00eaff,
+    0 0 15px #8e2de2;
+}
+
+h3.product-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #fbc531;
+  text-shadow: 0 0 6px rgba(251,197,49,0.8);
+}
+
+p, a, button {
+  font-weight: 400;
+  color: #ddd;
+}
+
+p.hero-subtitle {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.15rem;
+  color: #ccc;
+  text-align: center;
+  text-shadow: 0 0 3px #222;
+}
+
+/*========================
+  Navigation Bar
+=========================*/
+header {
+  background: linear-gradient(90deg, #000000, #111111);
+  padding: 1rem 0;
   box-shadow:
-    0 0 15px #00ffff,
-    inset 0 0 20px #00ffff;
-  color: #00ffff;
-  font-style: normal;  /* changed from italic */
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
+    0 0 8px rgba(0, 234, 255, 0.5),
+    inset 0 0 20px #8e2de2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-card {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #fbc531, #f39c12);
+  border-radius: 15px;
+  box-shadow:
+    0 0 15px rgba(251,197,49,0.8),
+    0 0 30px rgba(251,197,49,0.6);
+  font-weight: 600;
+  text-decoration: none;
+  color: #0a0a0a;
   user-select: none;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.nav-card:hover,
+.nav-card:focus {
+  background: linear-gradient(135deg, #f39c12, #fbc531);
+  box-shadow:
+    0 0 25px rgba(251,197,49,1),
+    0 0 50px rgba(251,197,49,0.8),
+    0 0 100px #fbc531;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/*========================
+  Hero Section
+=========================*/
+.hero {
+  padding: 3rem 0 5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #0a0a0a;
+  background: linear-gradient(90deg, #fbc531 0%, #f39c12 100%);
+  border-radius: 40px;
+  box-shadow:
+    0 0 15px rgba(251,197,49,0.8),
+    0 0 30px rgba(251,197,49,0.6);
+  user-select: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
+  margin: 0 auto;
+  display: block;
+  max-width: 230px;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(90deg, #f39c12 0%, #fbc531 100%);
+  box-shadow:
+    0 0 30px rgba(251,197,49,1),
+    0 0 60px rgba(251,197,49,0.8),
+    0 0 120px #fbc531;
+  transform: scale(1.07);
+  outline: none;
+}
+
+/*========================
+  Products Grid
+=========================*/
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+}
+
+/*========================
+  Product Card
+=========================*/
+.product-card {
+  background: #121212;
+  border-radius: 15px;
+  box-shadow:
+    0 0 15px #00eaff,
+    0 0 30px #8e2de2;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: box-shadow 0.5s ease, transform 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* Card headings */
-.card h2 {
-  margin-bottom: 15px;
-  font-size: 1.8rem;
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #00eaff, #8e2de2, #00eaff, #8e2de2);
+  animation: neon-glow 6s linear infinite;
+  filter: blur(25px);
+  opacity: 0.5;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 15px;
 }
 
-/* Card paragraph */
-.card p {
-  margin-bottom: 25px;
-  font-size: 1rem;
-  line-height: 1.4;
+.product-card:hover::before,
+.product-card:focus::before {
+  opacity: 0.8;
 }
 
-/* Link buttons inside cards */
-.card a {
-  padding: 14px 32px;
-  background-color: #000000cc;
-  border-radius: 50px;
-  color: #00ffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-style: normal;  /* changed from italic */
-  font-size: 1rem;
-  letter-spacing: 0.07em;
-  text-align: center;
+.product-card:hover,
+.product-card:focus {
   box-shadow:
-    0 0 8px #00ffff,
-    inset 0 0 6px #00ffff;
-  transition: all 0.3s ease;
-}
-
-.card a:hover,
-.card a:focus {
-  background-color: #00ffff;
-  color: #0a0a0a;
-  box-shadow:
-    0 0 15px #00ffff,
-    inset 0 0 12px #00ffff;
+    0 0 25px #00eaff,
+    0 0 50px #8e2de2,
+    0 0 80px #00eaff;
+  transform: scale(1.03);
   outline: none;
+  z-index: 10;
+  background: #1b1b1b;
+  color: #fbc531;
+}
+
+.product-desc {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #ccc;
+  z-index: 5;
+  position: relative;
+}
+
+.btn-secondary {
+  align-self: flex-start;
+  padding: 0.85rem 2.25rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0a0a0a;
+  background: linear-gradient(90deg, #fbc531 0%, #f39c12 100%);
+  border-radius: 50px;
+  box-shadow:
+    0 0 15px rgba(251,197,49,0.9),
+    0 0 30px rgba(251,197,49,0.7);
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  z-index: 10;
+  position: relative;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: linear-gradient(90deg, #f39c12 0%, #fbc531 100%);
+  box-shadow:
+    0 0 35px rgba(251,197,49,1),
+    0 0 65px rgba(251,197,49,0.9),
+    0 0 100px #fbc531;
   transform: scale(1.1);
+  outline: none;
+}
+
+/* Neon Glow Animation */
+@keyframes neon-glow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/*========================
+  Adsense Card
+=========================*/
+.adsense-card {
+  max-width: 970px;
+  margin: 0 auto 5rem;
+  background: #121212;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow:
+    0 0 15px #00eaff,
+    0 0 40px #8e2de2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*========================
+  Footer
+=========================*/
+footer {
+  background: #0a0a0a;
+  padding: 2rem 0;
+  border-top: 2px solid #fbc531;
+  text-align: center;
+  font-weight: 500;
+  color: #ccc;
+  user-select: none;
+  position: relative;
+  z-index: 20;
+}
+
+footer p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+}
+
+.social-links a {
+  font-size: 1.6rem;
+  color: #fbc531;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: #00eaff;
+  outline: none;
+  text-shadow:
+    0 0 8px #00eaff,
+    0 0 15px #8e2de2;
+}
+
+/*========================
+  Responsive
+=========================*/
+@media (max-width: 991px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  h1.site-title {
+    font-size: 2.8rem;
+  }
+
+  h2.hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-card {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  h1.site-title {
+    font-size: 2.4rem;
+  }
+
+  h2.hero-title {
+    font-size: 1.5rem;
+    max-width: 100%;
+  }
+
+  .btn-primary {
+    max-width: 100%;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/*========================
+  Accessibility
+=========================*/
+a:focus,
+button:focus {
+  outline: 3px solid #fbc531;
+  outline-offset: 3px;
 }
