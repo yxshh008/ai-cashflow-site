@@ -1,16 +1,13 @@
-/* Import Citrine font */
 @import url('https://fonts.googleapis.com/css2?family=Citrine&display=swap');
 
 /* Reset */
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
-/* Body and Background */
+/* Body */
 body {
   font-family: 'Citrine', sans-serif;
   background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
@@ -20,25 +17,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 40px 60px 40px;
+  padding: 40px 40px 80px 40px;
   user-select: none;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 20px;
 }
 
 /* Navbar */
 .navbar {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   background: linear-gradient(90deg, #1e1c1c, #2a2525);
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
-  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(255, 215, 0, 0.5);
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  margin-bottom: 50px;
+  padding: 22px 50px;
+  margin-bottom: 60px;
   position: sticky;
   top: 10px;
-  z-index: 100;
+  z-index: 1000;
+  backdrop-filter: saturate(180%) blur(15px);
 }
 
 /* Logo */
@@ -46,57 +57,88 @@ body {
   font-family: 'Citrine', sans-serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 3rem;
-  background: linear-gradient(90deg, #f1c40f, #f39c12);
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #f1c40f, #d4af37, #f39c12);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
-    0 0 6px rgba(241, 196, 15, 0.8),
-    0 0 12px rgba(243, 156, 18, 0.6);
-  letter-spacing: 6px;
+    0 0 12px rgba(241, 196, 15, 0.9),
+    0 0 24px rgba(243, 156, 18, 0.7);
+  letter-spacing: 7px;
   cursor: default;
   user-select: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(-2deg);
+  text-shadow:
+    0 0 20px #f1c40f,
+    0 0 30px #f39c12,
+    0 0 40px #d4af37;
 }
 
-/* Navigation links container */
+/* Navigation container */
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 28px;
   list-style: none;
 }
 
-/* Each nav link card */
+/* Nav buttons as cards */
 .nav-links li {
   background: #292424;
-  border: 2px solid #f1c40f;
-  border-radius: 16px;
-  padding: 12px 28px;
+  border: 2.5px solid #f1c40f;
+  border-radius: 20px;
+  padding: 14px 32px;
   box-shadow:
-    0 0 10px rgba(241, 196, 15, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+    0 0 14px rgba(241, 196, 15, 0.35);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
   user-select: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .nav-links li a {
   color: #f1c40f;
   font-weight: 700;
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   text-decoration: none;
   transition: color 0.3s ease;
   user-select: none;
+  letter-spacing: 1.2px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-links li::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f1c40f, #d4af37, #f39c12);
+  transform: skewY(-15deg);
+  transition: top 0.3s ease;
+  z-index: 1;
+  border-radius: 20px;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.nav-links li:hover::before,
+.nav-links li:focus-within::before {
+  top: 0;
 }
 
 .nav-links li:hover,
 .nav-links li:focus-within {
   background: linear-gradient(90deg, #f1c40f, #d4af37);
   box-shadow:
-    0 0 20px rgba(241, 196, 15, 0.8),
-    inset 0 0 8px rgba(255, 223, 93, 0.6);
+    0 0 30px rgba(241, 196, 15, 0.8),
+    inset 0 0 15px rgba(255, 223, 93, 0.7);
+  transform: translateY(-3px);
 }
 
 .nav-links li:hover a,
@@ -104,169 +146,131 @@ body {
   color: #1c1a1a;
 }
 
-/* Main content container */
+/* Main container */
 main {
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 52px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-/* Affiliate Card */
+/* Card base */
 .card {
   background: linear-gradient(145deg, #2e2a2a, #1c1a1a);
-  border-radius: 24px;
-  border: 2px solid #d4af37;
+  border-radius: 28px;
+  border: 3px solid #d4af37;
   box-shadow:
-    0 0 18px rgba(212, 175, 55, 0.4),
-    inset 0 0 14px rgba(212, 175, 55, 0.2);
+    0 0 22px rgba(212, 175, 55, 0.5),
+    inset 0 0 16px rgba(212, 175, 55, 0.25);
   color: #f1e6b2;
-  width: 360px;
-  padding: 36px 40px;
+  width: 380px;
+  padding: 40px 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: box-shadow 0.4s ease;
+  transition: box-shadow 0.5s ease, transform 0.3s ease;
   cursor: default;
   user-select: none;
   position: relative;
   overflow: hidden;
 }
 
-/* Neon animated glow behind card on hover */
 .card::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
   background: linear-gradient(45deg, #f1c40f, #f39c12, #f1c40f, #d4af37);
   background-size: 400% 400%;
-  animation: neonGlow 12s ease infinite;
-  filter: blur(40px);
+  animation: neonGlow 15s ease infinite;
+  filter: blur(45px);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
   z-index: 0;
-  border-radius: 24px;
+  border-radius: 28px;
 }
+
 .card:hover::before {
   opacity: 1;
   animation-play-state: running;
 }
 
 @keyframes neonGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Card content above neon glow */
-.card > * {
-  position: relative;
-  z-index: 1;
+.card:hover {
+  box-shadow:
+    0 0 48px rgba(212, 175, 55, 0.8),
+    inset 0 0 26px rgba(212, 175, 55, 0.35);
+  transform: translateY(-8px);
 }
 
-/* Card Title */
+/* Card heading */
 .card h2 {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-style: italic;
-  margin-bottom: 18px;
-  letter-spacing: 3px;
+  margin-bottom: 22px;
+  letter-spacing: 3.5px;
   text-shadow:
-    0 0 10px rgba(243, 156, 18, 0.9);
+    0 0 18px rgba(243, 156, 18, 1);
   user-select: text;
 }
 
-/* Card Description */
+/* Card paragraph */
 .card p {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
   color: #f8f6e7;
   user-select: text;
+  letter-spacing: 0.4px;
 }
 
-/* Button */
+/* Buttons in cards */
 .card a.btn {
   align-self: flex-start;
   background: linear-gradient(90deg, #f1c40f, #d4af37);
   color: #1c1a1a;
   font-weight: 700;
   font-style: italic;
-  font-size: 1.3rem;
-  padding: 16px 48px;
-  border-radius: 48px;
+  font-size: 1.5rem;
+  padding: 18px 58px;
+  border-radius: 60px;
   box-shadow:
-    0 0 22px rgba(243, 156, 18, 0.85);
+    0 0 26px rgba(243, 156, 18, 0.95);
   text-decoration: none;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
   user-select: none;
   cursor: pointer;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-family: 'Citrine', sans-serif;
 }
 
 .card a.btn:hover,
 .card a.btn:focus {
   background: linear-gradient(90deg, #d4af37, #f1c40f);
   box-shadow:
-    0 0 32px rgba(255, 223, 93, 1);
+    0 0 42px rgba(255, 223, 93, 1);
   outline: none;
 }
 
 /* Ad container */
 .ad-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 40px auto 60px;
+  max-width: 1300px;
+  margin: 40px auto 80px;
   text-align: center;
 }
 
 /* Footer */
 footer {
-  width: 100%;
-  max-width: 1200px;
-  text-align: center;
-  padding: 22px 0;
-  font-size: 1.1rem;
-  color: #d4af37;
-  font-style: italic;
-  letter-spacing: 1.5px;
-  user-select: none;
-  border-top: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  main {
-    justify-content: center;
-    gap: 36px;
-  }
-  .card {
-    width: 90vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px;
-  }
-  .nav-links {
-    gap: 20px;
-  }
-  .logo {
-    font-size: 2.4rem;
-    letter-spacing: 5px;
-  }
-}
+  width
